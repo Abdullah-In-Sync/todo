@@ -18,7 +18,7 @@ export default {
     return {
       editing: false,
       todoDescText: "",
-      todoTitleTextL: "",
+      todoTitleText: "",
     };
   },
   components: { AddTodos, SingleTodo },
