@@ -24,7 +24,7 @@ export default {
   components: { AddTodos, SingleTodo },
 
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo"]),
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "editTodo"]),
     todoTitleChange(e) {
       this.todoTitleText = e.target.value;
     },
