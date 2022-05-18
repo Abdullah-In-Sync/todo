@@ -129,13 +129,13 @@ export default {
     return {
       editing: false,
       todoDescText: "",
-      todoTitleTextL: "",
+      todoTitleText: "",
     };
   },
   components: { AddTodos },
 
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo"]),
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "editTodo"]),
     todoTitleChange(e) {
       this.todoTitleText = e.target.value;
     },

@@ -20,10 +20,10 @@ async deleteTodo({ commit }, id) {
 
     commit("removeTodo", id);
   },
-async updateTodo({ commit }, id) {
-    await axios.get(`http://localhost:3000/todos/${id}`);
+async updateTodo({ commit }, todo) {
+    await axios.put(`http://localhost:3000/todos/${todo.id}`,todo);
 
-    commit("editingTodo", id);
+    commit("editingTodo", todo);
   },
 
 
@@ -36,7 +36,18 @@ removeTodo: (state, id) =>{
 },
 editingTodo:(state,todo)=>{
     let index = state.todos.findIndex(t=>t.id==todo.id)
-    console.log(index);
+    // console.log(index);
+    // if(index!= -1){
+    //     state.todos[index] = id
+    // }
+console.log(index);
+    state.todos = state.todos.map(todo => {
+        if (todo.id === todo.id) {
+            state.todos[index] = todo
+            console.log(todo);
+        }
+    });
+
 }
 
 
