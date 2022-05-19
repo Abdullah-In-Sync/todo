@@ -38,18 +38,9 @@ editingTodo:(state,todo)=>{
     console.log(todo);
     let index = state.todos.findIndex(t=>t.id==todo.id)
     // console.log(index);
-    // if(index!= -1){
-    //     state.todos[index] = id
-    // }
-console.log(index);
-    state.todos = state.todos.map(todo => {
-        if (todo.id === todo.id) {
-            state.todos[index] = todo
-            console.log(todo);
-        }
-    });
-
-}
+     state.todos[index] = todo
+    //console.log(state.todos)
+  },
 
 
 }
