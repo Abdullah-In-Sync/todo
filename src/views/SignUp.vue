@@ -1,4 +1,6 @@
 <template>
+<div class="class" v-if="error">{{error.message}}</div>
+
   <!-- component -->
 
   <div class="min-w-screen flex items-center justify-center px-2 py-5">
@@ -245,6 +247,7 @@
                       ></i>
                     </div>
                     <input
+                    
                       type="text"
                       class="
                         w-full
@@ -322,6 +325,7 @@
                     </div>
                     <input
                       type="email"
+                      v-model="email"
                       class="
                         w-full
                         -ml-10
@@ -360,6 +364,7 @@
                     </div>
                     <input
                       type="password"
+                      v-model="password"
                       class="
                         w-full
                         -ml-10
@@ -380,6 +385,8 @@
             <div class="flex -mx-3">
               <div class="w-full px-3 mb-5">
                 <button
+                type="submit"
+                @click.prevent="onRegister"
                   class="
                     block
                     w-full
@@ -439,7 +446,41 @@
 </style>
 
 <script>
-export default {};
+// import * as firebase from "firebase/app";
+// import {auth} from "../firebase/index";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  // signInWithEmailAndPassword,
+  // GoogleAuthProvider,
+  // signInWithPopup,
+  // signOut
+} from "firebase/auth";
+
+export default {
+data(){
+  return{
+    email:"",
+    password:"",
+    error:""
+  }
+},
+methods:{
+ onRegister(){
+   createUserWithEmailAndPassword(getAuth(), this.email, this.password)
+     .then(() => {
+      //  console.log(user);
+        alert('Successfully registered! Please login.');
+        this.$router.push('/');
+      })
+      .catch(error => {
+        alert(error.message);
+      });
+  }
+}
+
+
+};
 </script>
 
 

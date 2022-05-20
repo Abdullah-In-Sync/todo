@@ -10,14 +10,14 @@
                         <label for="" class="block mt-3 text-3xl text-gray-700 text-center font-semibold">
                             Login
                         </label>
-                        <form method="#" action="#" class="mt-10">
+                        <form @submit.prevent="onSignIn" class="mt-10">
                                            
                             <div>
-                                <input type="email" placeholder="Enter Your Email" class="mt-1 px-4  block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
+                                <input type="email" v-model="email" placeholder="Enter Your Email" class="mt-1 px-4  block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">
                             </div>
                 
                             <div class="mt-7">                
-                                <input type="password" placeholder="Enter Your Password" class="mt-1 px-4 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">                           
+                                <input v-model="password" type="password" placeholder="Enter Your Password" class="mt-1 px-4 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">                           
                             </div>
 
                             <div class="mt-7 flex">
@@ -76,3 +76,23 @@
             
         </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            email:"",
+            password:""
+        }
+    },
+    methods:{
+        onSignIn(){
+            
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>
