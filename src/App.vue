@@ -3,7 +3,7 @@
 
 
    
-<navbar-comp/>
+<navbar-comp :key="$route.fullPath" />
   
   <router-view/>
   <footer-comp/>

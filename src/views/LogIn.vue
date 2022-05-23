@@ -36,7 +36,7 @@
                             </div>
                 
                             <div class="mt-7">
-                                <button class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                <button @click="onSignIn" class="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
                                     Login
                                 </button>
                             </div>
@@ -78,16 +78,42 @@
 </template>
 
 <script>
+import {
+  getAuth,
+//   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  // GoogleAuthProvider,
+  // signInWithPopup,
+  // signOut
+} from "firebase/auth";
 export default {
     data(){
         return{
             email:"",
-            password:""
+            password:"",
+            error:"",
+            isAuth:false,
+            isLogged:false
         }
     },
     methods:{
         onSignIn(){
             
+   signInWithEmailAndPassword(getAuth(), this.email, this.password)
+     .then(() => {
+      //  console.log(user);
+        alert('Successfully login.');
+        this.isAuth = true;
+        if(this.isAuth === true){
+            this.isLogged = true;
+        }
+        this.$router.push('/');
+      })
+      .catch(error => {
+          console.log(error.message);
+        alert("Invalid Credential");
+      });
+
         }
     }
 }
