@@ -2,7 +2,7 @@
   <AddTodos />
   <div class="todos my-4">
     <ul class="todos-list">
-      <SingleTodo v-for="(todo ,index) in allTodos" :index = "index+1" :todo="todo" :key="todo.title"></SingleTodo>
+      <SingleTodo v-for="(todo ,index) in allTodos" :index = "index+1" :allTodos="allTodos" :todo="todo" :key="todo.title"></SingleTodo>
     </ul>
   </div>
 </template>

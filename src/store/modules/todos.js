@@ -13,6 +13,7 @@ async getTodos({commit}){
 },
 async postTodos({commit},todo){
     const res = await axios.post("http://localhost:3000/todos",todo);
+   
     commit("newTodo",res.data)
 },
 async deleteTodo({ commit }, id) {

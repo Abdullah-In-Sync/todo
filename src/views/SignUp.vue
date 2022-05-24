@@ -468,8 +468,8 @@ data(){
 methods:{
  onRegister(){
    createUserWithEmailAndPassword(getAuth(), this.email, this.password)
-     .then(() => {
-      //  console.log(user);
+     .then((user) => {
+       console.log('gh', user.uid);
         alert('Successfully registered! Please login.');
         this.$router.push('/');
       })

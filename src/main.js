@@ -39,7 +39,9 @@ export { auth }
 let appp;
  auth.onAuthStateChanged( user=>{
   if (!appp) {
-    console.log(user);
+    if(user){
+      console.log(user.uid);
+    }
     appp=  createApp(App).use(store).use(router).mount('#app')
     
   }

@@ -144,7 +144,7 @@ import { mapActions } from "vuex";
 
 export default {
   name: "SingleTodo",
-  props: ["todo", "index"],
+  props: ["todo", "index",],
   data() {
     return {
       editing: false,
