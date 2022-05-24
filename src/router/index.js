@@ -58,7 +58,7 @@ router.beforeEach((to,from,next)=>{
   if(to.matched.some(record=> record.meta.requiresAuth)){
     //Check if Not Logged in
     if (!getAuth().currentUser) {
-      console.log("if not user");
+      console.log("if not user",getAuth().currentUser);
       // Go to Login
       next({
         path:'/login',
@@ -69,7 +69,7 @@ router.beforeEach((to,from,next)=>{
     }
     else{
       //proceed to route
-      console.log("not user else");
+      console.log("not user else-",getAuth().currentUser);
       next()
     }
   }else if(to.matched.some(record=> record.meta.requiresGuest)){

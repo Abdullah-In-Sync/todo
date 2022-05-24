@@ -1,9 +1,11 @@
-import { createApp } from 'vue'
-
+import { createApp,  } from 'vue'
+// import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/tailwind.css'
+// import firebase from './firebase'
+import './firebase/index'
 
 // import axios from 'axios'
 
@@ -34,6 +36,12 @@ export { auth }
 // const analytics = getAnalytics(app);
 
 // Import the functions you need from the SDKs you need
-
-createApp(App).use(store).use(router).mount('#app')
+let appp;
+ auth.onAuthStateChanged( user=>{
+  if (!appp) {
+    console.log(user);
+    appp=  createApp(App).use(store).use(router).mount('#app')
+    
+  }
+})
 
