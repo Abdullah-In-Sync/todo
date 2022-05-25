@@ -17,12 +17,14 @@ export default {
   components: { AddTodos, SingleTodo },
 
   methods: {
-    ...mapActions(["getTodos"]),
+    ...mapActions(["getTodos","loginUser"]),
   
   },
   computed: mapGetters(["allTodos"]),
   mounted() {
-    this.getTodos();
+    // this.getTodos();
+    // console.log(allTodos)
+    // this.loginUser()
   },
 };
 </script>

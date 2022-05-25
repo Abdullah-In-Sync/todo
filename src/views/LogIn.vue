@@ -86,6 +86,8 @@ import {
   // signInWithPopup,
   // signOut
 } from "firebase/auth";
+//import { getuid } from "process";
+import { mapActions } from "vuex";
 export default {
     data(){
         return{
@@ -97,11 +99,14 @@ export default {
         }
     },
     methods:{
+   
+    ...mapActions(["loginUser"]),
         onSignIn(){
             
    signInWithEmailAndPassword(getAuth(), this.email, this.password)
-     .then(() => {
-      //  console.log(user);
+     .then((currUser) => {
+       console.log(currUser.user.uid);
+    //    this.loginUser(currUser.user.uid)
         alert('Successfully login.');
         this.isAuth = true;
         if(this.isAuth === true){

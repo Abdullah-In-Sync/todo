@@ -6,6 +6,7 @@ import store from './store'
 import './assets/tailwind.css'
 // import firebase from './firebase'
 import './firebase/index'
+// import { mapActions } from "vuex";
 
 // import axios from 'axios'
 
@@ -36,11 +37,15 @@ export { auth }
 // const analytics = getAnalytics(app);
 
 // Import the functions you need from the SDKs you need
+// ...mapActions(["getTodos"]),
 let appp;
  auth.onAuthStateChanged( user=>{
   if (!appp) {
     if(user){
       console.log(user.uid);
+      store.dispatch("loginUser",user.uid)
+      store.dispatch("getTodos",user.uid)
+      // debugger;
     }
     appp=  createApp(App).use(store).use(router).mount('#app')
     

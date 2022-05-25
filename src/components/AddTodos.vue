@@ -85,12 +85,15 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["postTodos"]),
+    ...mapActions(["postTodos",]),
    
     onSubmit() {
       //   let todos = this.$store.state.todos
       //  let lastId =todos[todos.length - 1].id + 1;
       //  console.log(lastId)
+      // let UID = this.$store.state.userUID
+      // console.log(UID)
+      // this.loginUser(UID)
 
       this.postTodos({
         // id:lastId,

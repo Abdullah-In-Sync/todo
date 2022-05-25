@@ -448,6 +448,7 @@
 <script>
 // import * as firebase from "firebase/app";
 // import {auth} from "../firebase/index";
+import { mapActions } from "vuex";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -466,11 +467,13 @@ data(){
   }
 },
 methods:{
+  ...mapActions(["postUser"]),
  onRegister(){
    createUserWithEmailAndPassword(getAuth(), this.email, this.password)
-     .then((user) => {
-       console.log('gh', user.uid);
+     .then((newUser) => {
+       console.log('newUser===', newUser);
         alert('Successfully registered! Please login.');
+        this.postUser(newUser.user.uid)
         this.$router.push('/');
       })
       .catch(error => {

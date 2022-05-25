@@ -154,7 +154,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo"]),
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo","loginUser"]),
     todoTitleChange(e) {
       this.todoTitleText = e.target.value;
     },

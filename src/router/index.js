@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import MyTodos from '../views/MyTodos.vue'
 // import firebase from 'firebase'
 import {
-  getAuth,
+  // getAuth,
   // createUserWithEmailAndPassword,
   // signInWithEmailAndPassword,
   // GoogleAuthProvider,
@@ -53,48 +53,48 @@ const router = createRouter({
 })
 
 
-router.beforeEach((to,from,next)=>{
-  //Check for requireAuth guard
-  if(to.matched.some(record=> record.meta.requiresAuth)){
-    //Check if Not Logged in
-    if (!getAuth().currentUser) {
-      console.log("if not user",getAuth().currentUser);
-      // Go to Login
-      next({
-        path:'/login',
-        query:{
-          redirect:to.fullPath
-        }
-      });
-    }
-    else{
-      //proceed to route
-      console.log("not user else-",getAuth().currentUser);
-      next()
-    }
-  }else if(to.matched.some(record=> record.meta.requiresGuest)){
-    //Check if is Logged in
-    if (getAuth().currentUser) {
-      console.log("if user exist");
-      // Go to Login
-      next({
-        path:'/',
-        query:{
-          redirect:to.fullPath
-        }
-      });
-    }
-    else{
-      //proceed to route
-      next()
-      console.log("user else");
-    }
-  }else{
-    //proceed to route
-    next()
-    console.log("last else");
-  }
-})
+// router.beforeEach((to,from,next)=>{
+//   //Check for requireAuth guard
+//   if(to.matched.some(record=> record.meta.requiresAuth)){
+//     //Check if Not Logged in
+//     if (!getAuth().currentUser) {
+//       console.log("if not user",getAuth().currentUser);
+//       // Go to Login
+//       next({
+//         path:'/login',
+//         query:{
+//           redirect:to.fullPath
+//         }
+//       });
+//     }
+//     else{
+//       //proceed to route
+//       console.log("not user else-",getAuth().currentUser.uid);
+//       next()
+//     }
+//   }else if(to.matched.some(record=> record.meta.requiresGuest)){
+//     //Check if is Logged in
+//     if (getAuth().currentUser) {
+//       console.log("if user exist");
+//       // Go to Login
+//       next({
+//         path:'/',
+//         query:{
+//           redirect:to.fullPath
+//         }
+//       });
+//     }
+//     else{
+//       //proceed to route
+//       next()
+//       console.log("user else");
+//     }
+//   }else{
+//     //proceed to route
+//     next()
+//     console.log("last else");
+//   }
+// })
 
 
 export default router
