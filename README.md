@@ -9,6 +9,10 @@ npm install
 ```
 npm run serve
 ```
+### Open New Terminal and start the db.json api server
+```
+npx json-server --watch db.json
+```
 
 ### Compiles and minifies for production
 ```
